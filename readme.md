@@ -24,6 +24,35 @@ kind version
 
 # Run the Demo
 
+## Quick Setup (Recommended)
+
+### Step 1: Configure Docker Username
+
+First, configure your Docker username to replace the default 'travisfrels' username:
+
+```bash
+./configure-docker-username.sh
+```
+
+This script will:
+- Automatically detect your Docker Hub username (if logged in)
+- Prompt you to enter it manually if auto-detection fails
+- Replace 'travisfrels' with your username in all relevant files
+
+### Step 2: Run Installation
+
+For a streamlined installation, use the provided install script:
+
+```bash
+./install.sh
+```
+
+This script automates all the setup steps below and provides helpful status messages throughout the process.
+
+## Manual Setup
+
+Alternatively, you can run the commands manually:
+
 ## Create the Knative Control Plane in Docker
 
 ```bash
@@ -125,7 +154,17 @@ kubectl port-forward svc/fomantis-app-service 3000:3000
 
 # Cleanup
 
-## Delete the Knative Control Plane
+## Quick Cleanup (Recommended)
+
+Use the provided cleanup script:
+
+```bash
+./cleanup.sh
+```
+
+## Manual Cleanup
+
+Alternatively, delete the Knative control plane manually:
 
 ```bash
 kind delete clusters knative
