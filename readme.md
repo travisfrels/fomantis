@@ -26,6 +26,21 @@ kind version
 
 ## Quick Setup (Recommended)
 
+### Step 1: Configure Docker Username
+
+First, configure your Docker username to replace the default 'travisfrels' username:
+
+```bash
+./configure-docker-username.sh
+```
+
+This script will:
+- Automatically detect your Docker Hub username (if logged in)
+- Prompt you to enter it manually if auto-detection fails
+- Replace 'travisfrels' with your username in all relevant files
+
+### Step 2: Run Installation
+
 For a streamlined installation, use the provided install script:
 
 ```bash
