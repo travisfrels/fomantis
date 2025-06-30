@@ -1,0 +1,14 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: persist-comment-trigger
+spec:
+  broker: fomantis-broker
+  filter:
+    attributes:
+      type: comment-analysis
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: persist-comment-service
