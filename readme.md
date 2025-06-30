@@ -100,4 +100,3 @@ kubectl apply -f ./frontend/service.yaml
 ```bash
 kubectl port-forward svc/fomantis-app-service 3000:3000
 ```
-
