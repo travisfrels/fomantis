@@ -18,3 +18,11 @@ This project demonstrates:
 kubeclt apply -f ./config/broker.yaml
 ```
 
+## Create the Analyze Sentiment Function
+
+```bash
+docker build -t travisfrels/analyze-sentiment ./functions/analyze-sentiment
+docker push travisfrels/analyze-sentiment
+kubectl apply -f ./funcions/analyze-sentiment/func.yaml
+```
+
