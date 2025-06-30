@@ -1,0 +1,15 @@
+{
+  "name": "analyze-profanity",
+  "description": "Determine if profanity exists in a comment.",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "faas-js-runtime index.js"
+  },
+  "dependencies": {
+    "cloudevents": "^10.0.0",
+    "faas-js-runtime": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

@@ -1,0 +1,37 @@
+apiVersion: flows.knative.dev/v1
+kind: Sequence
+metadata:
+  name: comment-analysis-sequence
+spec:
+  channelTemplate:
+    apiVersion: messaging.knative.dev/v1
+    kind: InMemoryChannel
+  steps:
+    - ref:
+        apiVersion: serving.knative.dev/v1
+        kind: Service
+        name: analyze-sentiment-service
+    - ref:
+        apiVersion: serving.knative.dev/v1
+        kind: Service
+        name: analyze-profanity-service
+  reply:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: fomantis-broker
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: comment-analysis-sequence-trigger
+spec:
+  broker: fomantis-broker
+  filter:
+    attributes:
+      type: new-comment
+  subscriber:
+    ref:
+      apiVersion: flows.knative.dev/v1
+      kind: Sequence
+      name: comment-analysis-sequence
