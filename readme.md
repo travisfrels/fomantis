@@ -34,3 +34,9 @@ docker push travisfrels/analyze-profanity
 kubectl apply -f ./funcions/analyze-profanity/func.yaml
 ```
 
+## Create the Comment Analysis Sequence and Trigger
+
+```bash
+kubectl apply -f ./functions/config/comment-analysis-sequence.yaml
+```
+
