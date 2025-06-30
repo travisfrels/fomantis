@@ -119,6 +119,10 @@ kubectl apply -f ./frontend/service.yaml
 kubectl port-forward svc/fomantis-app-service 3000:3000
 ```
 
+## Open Fomantis
+
+[http://localhost:3000](http://localhost:3000)
+
 # Cleanup
 
 ## Delete the Knative Control Plane
