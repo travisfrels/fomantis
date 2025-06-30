@@ -87,3 +87,17 @@ kubectl port-forward svc/fomantis-api-service 3001:3001
 curl -X GET http://localhost:3001/health-check -v -k
 ```
 
+## Create the Frontend APP
+
+```bash
+docker build -t travisfrels/fomantis-app ./frontend
+docker push travisfrels/fomantis-app
+kubectl apply -f ./frontend/service.yaml
+```
+
+## Port-Forward the Frontend App Service
+
+```bash
+kubectl port-forward svc/fomantis-app-service 3000:3000
+```
+
