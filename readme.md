@@ -40,3 +40,10 @@ kubectl apply -f ./funcions/analyze-profanity/func.yaml
 kubectl apply -f ./functions/config/comment-analysis-sequence.yaml
 ```
 
+## Test the analyze-sentiment and analzye-profanity Functions
+
+```bash
+curl http://analyze-sentiment-service.default.127.0.0.1.sslip.io -v -k -H "Content-Type: application/json" -d "{ \"data\": { \"comment\": \"I love Knative\" } }"
+curl http://analyze-profanity-service.default.127.0.0.1.sslip.io -v -k -H "Content-Type: application/json" -d "{ \"data\": { \"comment\": \"I love Knative\" } }"
+```
+
