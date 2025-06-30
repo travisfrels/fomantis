@@ -67,3 +67,23 @@ kubectl apply -f ./functions/config/persist-comment-trigger.yaml
 curl http://persist-comment-service.default.127.0.0.1.sslip.io -v -k -H "Content-Type: application/json" -d "{ \"data\": { \"comment\": \"I love Knative\" } }"
 ```
 
+## Create the Backend API
+
+```bash
+docker build -t travisfrels/fomantis-api ./backend
+docker push travisfrels/fomantis-api
+kubectl apply -f ./backend/service.yaml
+```
+
+## Port-Forward the Backend API Service
+
+```bash
+kubectl port-forward svc/fomantis-api-service 3001:3001
+```
+
+## Test the Backend API
+
+```bash
+curl -X GET http://localhost:3001/health-check -v -k
+```
+
