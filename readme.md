@@ -26,3 +26,11 @@ docker push travisfrels/analyze-sentiment
 kubectl apply -f ./funcions/analyze-sentiment/func.yaml
 ```
 
+## Create the Analyze Profanity Function
+
+```bash
+docker build -t travisfrels/analyze-profanity ./functions/analyze-profanity
+docker push travisfrels/analyze-profanity
+kubectl apply -f ./funcions/analyze-profanity/func.yaml
+```
+
