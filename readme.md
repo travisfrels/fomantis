@@ -12,6 +12,24 @@ This project demonstrates:
 - Interacting with Knative Eventing via backend API (built with Node.js, Express, and CloudEvents).
 - Async communication between backend and frontend using web sockets (built with Next.js and React).
 
+## Verify Prequisites
+
+```bash
+docker -v
+node -v
+kn version
+kn quickstart version
+kind version
+```
+
+# Run the Demo
+
+## Create the Knative Control Plane in Docker
+
+```bash
+kn quickstart kind
+```
+
 ## Create the Broker
 
 ```bash
@@ -99,4 +117,12 @@ kubectl apply -f ./frontend/service.yaml
 
 ```bash
 kubectl port-forward svc/fomantis-app-service 3000:3000
+```
+
+# Cleanup
+
+## Delete the Knative Control Plane
+
+```bash
+kind delete clusters knative
 ```
