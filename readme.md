@@ -12,3 +12,9 @@ This project demonstrates:
 - Interacting with Knative Eventing via backend API (built with Node.js, Express, and CloudEvents).
 - Async communication between backend and frontend using web sockets (built with Next.js and React).
 
+## Create the Broker
+
+```bash
+kubeclt apply -f ./config/broker.yaml
+```
+
